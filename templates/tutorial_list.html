@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ course.title }}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+
+            {% for tutorial in tutorials %}
+            <div class="col-md-3">
+                <div class="card custom-card">
+                    <div class="card-body text-center">
+                        <img src="{{ tutorial.image }}" class="img-fluid mb-3" alt="{{ course.title }}"
+                            style="max-width: 200px; height: 200px;">
+                        <p class="card-text">{{ tutorial.title }}</p>
+                        <h5 class="text-dark">Price: ${{ tutorial.price }}</h5>
+                        <a href="{% url 'tutorial-checkout' tutorial.id %}" class="btn btn-success btn-sm">Buy
+                            Tutorial</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</body>
+
+</html>
